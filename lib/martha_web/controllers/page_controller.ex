@@ -2,6 +2,6 @@ defmodule MarthaWeb.PageController do
   use MarthaWeb, :controller
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    text conn, "hello, martha"
   end
 end
