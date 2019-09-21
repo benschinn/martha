@@ -11,7 +11,9 @@ defmodule MarthaWeb.PageController do
         node = Floki.find(body, "h1")
         title = Floki.text(node)
         ingLis = Floki.find(body, "ul#lst_ingredients_1")
-        IO.puts(ingLis)
+        Enum.each ingLis, fn ing ->
+          IO.inspect ing
+        end
         %{title: title, ingredients: []}
       {:ok, %HTTPoison.Response{status_code: 404}} -> IO.puts "404: Not Found"
       {:error, %HTTPoison.Error{reason: reason}} -> IO.inspect reason
